@@ -23,4 +23,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
 top_level = true
 script = ExtResource("2_k6pk0")
-speed = 5.0

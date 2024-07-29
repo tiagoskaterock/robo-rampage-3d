@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dglwg2uft07ce"]
+
+[node name="Blocks" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.964, 5.24587, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.052, -3.04336, -11.0315)
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9652, -2.91988, 20.8401)
+size = Vector3(2, 2, 20)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.3149, -2.91988, 3.97899)
+size = Vector3(2, 2, 20)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3274, -2.91988, 6.80216)
+size = Vector3(2, 2, 20)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3607, -2.89664, 16.5666)
+size = Vector3(2, 2, 27.4237)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4678, -2.92529, 13.0336)
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.49842, -2.92529, 23.3557)
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49129, -3.01407, -27.9217)
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0235, -3.01407, -18.1005)
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.35513, -3.06581, -6.45882)
+size = Vector3(2, 2, 10)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93756, -3.06581, -16.4342)
+size = Vector3(2, 2, 10)
