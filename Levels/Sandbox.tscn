@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqfuurbh1tu7v"]
+[gd_scene load_steps=11 format=3 uid="uid://bqfuurbh1tu7v"]
 
 [ext_resource type="PackedScene" uid="uid://db75qmu2iocgr" path="res://Player/player.tscn" id="1_t3iey"]
-[ext_resource type="PackedScene" uid="uid://dglwg2uft07ce" path="res://TmpScenes/blocks.tscn" id="2_p36nt"]
 [ext_resource type="Script" path="res://Player/CrossHair.gd" id="3_0fitx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_segxe"]
@@ -17,6 +16,21 @@ sky = SubResource("Sky_decom")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88788"]
+albedo_color = Color(0.311035, 0.19188, 0.058279, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwre2"]
+albedo_color = Color(0.615686, 0.521569, 0.419608, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sp1w"]
+albedo_color = Color(0, 0.3868, 1.92523e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noe8r"]
+albedo_color = Color(0.684019, 0.673631, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ayf0"]
+albedo_color = Color(0.00114378, 0, 0.954673, 1)
+
 [node name="Sandbox" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -26,12 +40,69 @@ environment = SubResource("Environment_71j1q")
 
 [node name="Player" parent="." instance=ExtResource("1_t3iey")]
 
-[node name="Blocks" parent="." instance=ExtResource("2_p36nt")]
+[node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.964, 5.24587, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.052, -3.04336, -11.0315)
+use_collision = true
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9652, -2.91988, 20.8401)
+use_collision = true
+size = Vector3(2, 2, 20)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.3149, -2.91988, 3.97899)
+use_collision = true
+size = Vector3(2, 2, 20)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3274, -2.91988, 6.80216)
+use_collision = true
+size = Vector3(2, 2, 20)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3607, -2.89664, 16.5666)
+use_collision = true
+size = Vector3(2, 2, 27.4237)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4678, -2.92529, 13.0336)
+use_collision = true
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.49842, -2.92529, 23.3557)
+use_collision = true
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49129, -3.01407, -27.9217)
+use_collision = true
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0235, -3.01407, -18.1005)
+use_collision = true
+size = Vector3(20, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.35513, -3.06581, -6.45882)
+use_collision = true
+size = Vector3(2, 2, 10)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93756, -3.06581, -16.4342)
+use_collision = true
+size = Vector3(2, 2, 10)
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000355721, 0.832057, 0)
 use_collision = true
 size = Vector3(64, 1, 64)
+material = SubResource("StandardMaterial3D_88788")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -43,3 +114,29 @@ grow_vertical = 2
 [node name="CrossHair" type="Control" parent="CenterContainer"]
 layout_mode = 2
 script = ExtResource("3_0fitx")
+
+[node name="PlatformsGroup" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.41664, 1.6701, -6.78372)
+
+[node name="Platform" type="CSGBox3D" parent="PlatformsGroup"]
+use_collision = true
+size = Vector3(5, 1, 5)
+material = SubResource("StandardMaterial3D_qwre2")
+
+[node name="Platform2" type="CSGBox3D" parent="PlatformsGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6665, 0, 2.23071)
+use_collision = true
+size = Vector3(5, 2, 5)
+material = SubResource("StandardMaterial3D_0sp1w")
+
+[node name="Platform3" type="CSGBox3D" parent="PlatformsGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4022, 0, 10.9808)
+use_collision = true
+size = Vector3(5, 3, 5)
+material = SubResource("StandardMaterial3D_noe8r")
+
+[node name="Platform4" type="CSGBox3D" parent="PlatformsGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76585, 0, 15.898)
+use_collision = true
+size = Vector3(5, 3, 5)
+material = SubResource("StandardMaterial3D_5ayf0")
