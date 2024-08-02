@@ -193,4 +193,3 @@ material = ExtResource("3_6de5n")
 
 [node name="Enemy" parent="." instance=ExtResource("6_ojd6m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4661, 2.61908, -24.2504)
-attack_range = 1.5

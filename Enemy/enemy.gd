@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var player
 var provoked := false
@@ -55,5 +56,5 @@ func look_at_target(direction: Vector3) -> void:
 	look_at(global_position + ajusted_direction, Vector3.UP, true)
 
 
-func attack():
-	print('attack')
+func attack() -> void:
+	animation_player.play("Attack")
