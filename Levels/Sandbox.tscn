@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dfqplfjus60wo" path="res://Enemy/enemy.tscn" id="6_ojd6m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_segxe"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.839027, 0, 0.183656, 1)
+sky_horizon_color = Color(0.613114, 0.0902056, 4.81308e-08, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
 [sub_resource type="Sky" id="Sky_decom"]
@@ -47,6 +48,7 @@ environment = SubResource("Environment_71j1q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8561, 6.27848, -9.64767)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
