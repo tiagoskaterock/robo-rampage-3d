@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b8wiedcwxxqw2" path="res://Weapons/hit_scan_weapon.tscn" id="1_bvr1w"]
 [ext_resource type="PackedScene" uid="uid://be305yqr3usmp" path="res://Weapons/SMG.glb" id="2_smnd7"]
 
-[node name="SMG" instance=ExtResource("1_bvr1w")]
+[node name="SMG" node_paths=PackedStringArray("weapon_mesh") instance=ExtResource("1_bvr1w")]
+weapon_mesh = NodePath("SMG")
 
 [node name="SMG" parent="." index="1" instance=ExtResource("2_smnd7")]
 transform = Transform3D(0.999608, -0.0266838, 0.00846926, 0.0273628, 0.99519, -0.0940674, -0.00591861, 0.0942624, 0.99553, 0.475578, -0.401482, -0.731435)
