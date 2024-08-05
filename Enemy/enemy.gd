@@ -1,7 +1,11 @@
 extends CharacterBody3D
+class_name Enemy
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+
+@export var max_hitpoints := 100
+@export var attack_range := 1.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -11,7 +15,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var player
 var provoked := false
 var aggro_range := 12.0
-@export var attack_range := 1.5
+var hitpoints: int = max_hitpoints:
+	set(value):
+		hitpoints = value
+		if hitpoints <= 0:
+			queue_free()
+		provoked = true
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")

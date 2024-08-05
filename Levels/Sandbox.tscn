@@ -20,7 +20,6 @@ background_mode = 2
 sky = SubResource("Sky_decom")
 tonemap_mode = 2
 glow_enabled = true
-fog_enabled = true
 fog_density = 0.1
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yigfx"]
@@ -50,7 +49,6 @@ environment = SubResource("Environment_71j1q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8561, 6.27848, -9.64767)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -197,3 +195,21 @@ material = ExtResource("3_6de5n")
 
 [node name="Enemy" parent="." instance=ExtResource("6_ojd6m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4661, 2.61908, -24.2504)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_ojd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4661, 2.61908, -17.4919)
+
+[node name="Enemy3" parent="." instance=ExtResource("6_ojd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.503, 2.61908, -22.0222)
+
+[node name="Enemy4" parent="." instance=ExtResource("6_ojd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6379, 2.61908, 3.28499)
+
+[node name="Enemy5" parent="." instance=ExtResource("6_ojd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5061, 2.61908, -5.35069)
+
+[node name="Enemy6" parent="." instance=ExtResource("6_ojd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20874, 2.61908, -5.35069)
+
+[node name="Enemy7" parent="." instance=ExtResource("6_ojd6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20874, 2.61908, -12.8363)
