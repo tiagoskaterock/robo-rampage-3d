@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kfrdcktkpsnc"]
+
+[ext_resource type="AudioStream" uid="uid://b778ml67hus4p" path="res://Weapons/gun-shot.mp3" id="1_vxhj2"]
+
+[node name="GunShot" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_vxhj2")
+autoplay = true
