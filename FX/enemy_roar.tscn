@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://udw1wbkonerh"]
+
+[ext_resource type="AudioStream" uid="uid://bstv8tbipd6ej" path="res://Enemy/enemy-roar.wav" id="1_ggyij"]
+
+[node name="EnemyRoar" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_ggyij")
+autoplay = true

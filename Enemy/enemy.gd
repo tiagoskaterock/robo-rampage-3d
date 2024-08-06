@@ -12,6 +12,8 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sandbox = get_parent().get_parent()
+
 
 var player
 var provoked := false
@@ -69,4 +71,11 @@ func look_at_target(direction: Vector3) -> void:
 
 func attack() -> void:
 	player.hitpoints -= attack_damage
-	print("Enemy Attack!")
+	roar()
+	
+	
+func roar():
+	var pre_roar = preload("res://FX/enemy_roar.tscn")
+	var roar = pre_roar.instantiate()
+	sandbox.add_child(roar)
+
