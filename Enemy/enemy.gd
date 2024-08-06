@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 
 @export var max_hitpoints := 100
 @export var attack_range := 1.5
+@export var attack_damage := 20
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -45,8 +46,9 @@ func _physics_process(delta):
 	if distance <= aggro_range:
 		provoked = true
 		
-	if provoked and distance < attack_range:
-		attack()
+	if provoked:
+		if distance < attack_range:
+			animation_player.play("Attack")
 
 	if direction:
 		look_at_target(direction)
@@ -66,4 +68,5 @@ func look_at_target(direction: Vector3) -> void:
 
 
 func attack() -> void:
-	animation_player.play("Attack")
+	player.hitpoints -= attack_damage
+	print("Enemy Attack!")
