@@ -43,7 +43,7 @@ albedo_color = Color(0.00114378, 0, 0.954673, 1)
 environment = SubResource("Environment_71j1q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.205, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.039, 2.02486, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_t3iey")]
