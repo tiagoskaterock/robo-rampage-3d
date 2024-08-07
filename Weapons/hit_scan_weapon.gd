@@ -5,6 +5,7 @@ extends Node3D
 @export var weapon_mesh: Node3D
 @export var weapon_damage := 15
 @export var muzzle_flash : GPUParticles3D
+var sparks: PackedScene = preload("res://Weapons/sparks.tscn")
 
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var weapon_position: Vector3 = weapon_mesh.position
@@ -23,13 +24,19 @@ func shoot() -> void:
 	shoot_fx()
 	cooldown_timer.start(1.0 / fire_rate)
 	var collider = ray_cast_3d.get_collider()
-	weapon_mesh.position.z += recoil	
+	weapon_mesh.position.z += recoil
 	if collider is Enemy:
 		collider.hitpoints -= weapon_damage
-		
+	add_sparks()
+
 
 func shoot_fx():
 	var pre_gun_shot : PackedScene = preload("res://FX/gun_shot.tscn")
 	var gun_shot = pre_gun_shot.instantiate()	
 	sandbox.add_child(gun_shot)
 	
+	
+func add_sparks():
+	var spark = sparks.instantiate()
+	add_child(spark)
+	spark.global_position = ray_cast_3d.get_collision_point()
