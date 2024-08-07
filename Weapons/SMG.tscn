@@ -1,26 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://delyw57vwvhao"]
+[gd_scene load_steps=8 format=3 uid="uid://delyw57vwvhao"]
 
 [ext_resource type="PackedScene" uid="uid://b8wiedcwxxqw2" path="res://Weapons/hit_scan_weapon.tscn" id="1_bvr1w"]
 [ext_resource type="PackedScene" uid="uid://be305yqr3usmp" path="res://Weapons/SMG.glb" id="2_smnd7"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a00d0"]
+albedo_color = Color(0.606341, 0.0944214, 0.234261, 1)
+emission_enabled = true
+emission = Color(0.820442, 0.413648, 0.238748, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="Curve" id="Curve_hln43"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_c3q17"]
+curve = SubResource("Curve_hln43")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_br83a"]
+emission_shape_offset = Vector3(0, 0, -1)
 direction = Vector3(0, 0, 0)
+initial_velocity_min = -8.0
+initial_velocity_max = -8.0
 angular_velocity_max = 90.0
 radial_velocity_min = 2.0
 radial_velocity_max = 4.0
 gravity = Vector3(0, -1, 0)
+scale_curve = SubResource("CurveTexture_c3q17")
 
 [sub_resource type="BoxMesh" id="BoxMesh_10v7p"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="SMG" node_paths=PackedStringArray("weapon_mesh") instance=ExtResource("1_bvr1w")]
+[node name="SMG" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_bvr1w")]
 weapon_mesh = NodePath("SMG")
+muzzle_flash = NodePath("MuzzleFlash")
 
 [node name="SMG" parent="." index="1" instance=ExtResource("2_smnd7")]
 transform = Transform3D(0.999608, -0.0266838, 0.00846926, 0.0273628, 0.99519, -0.0940674, -0.00591861, 0.0942624, 0.99553, 0.475578, -0.401482, -0.731435)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.464131, -0.264888, -1.82333)
+[node name="MuzzleFlash" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.464131, -0.264888, -0.798092)
+material_override = SubResource("StandardMaterial3D_a00d0")
+emitting = false
+lifetime = 0.07
+one_shot = true
 explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_br83a")
 draw_pass_1 = SubResource("BoxMesh_10v7p")
