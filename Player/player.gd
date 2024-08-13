@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 @export var jump_height: float = 1.0
 @export var fall_multiplier: float = 1.5
@@ -14,7 +13,8 @@ var hitpoints:int = max_hitpoints:
 		hitpoints = value
 		print(hitpoints)
 		if hitpoints <= 0:
-			get_tree().quit()
+			print('die')
+			# get_tree().quit()
 
 @onready var camera_pivot: Node3D = $CameraPivot
 
@@ -62,4 +62,8 @@ func handle_camera_rotation() -> void :
 	camera_pivot.rotation_degrees.x = clamp(
 		camera_pivot.rotation_degrees.x, -90.0, 90.0
 	)
-	mouse_motion = Vector2.ZERO		
+	mouse_motion = Vector2.ZERO
+	
+	
+func take_damage() -> void:
+	$DamageTexture/AnimationPlayer.play("TakeDamage")

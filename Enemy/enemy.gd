@@ -71,6 +71,7 @@ func look_at_target(direction: Vector3) -> void:
 
 func attack() -> void:
 	player.hitpoints -= attack_damage
+	player.take_damage()
 	roar()
 	
 	
