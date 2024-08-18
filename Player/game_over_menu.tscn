@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck24o3123ltie"]
+
+[ext_resource type="FontFile" uid="uid://h0rqbuio3coo" path="res://Fonts/Creepster/Creepster-Regular.ttf" id="1_8gf8t"]
+[ext_resource type="Script" path="res://Player/game_over_menu.gd" id="2_hpleq"]
+[ext_resource type="AudioStream" uid="uid://bwvcpti5hh0er" path="res://FX/man-scream.mp3" id="3_ju786"]
+
+[sub_resource type="Theme" id="Theme_ix5yo"]
+default_font = ExtResource("1_8gf8t")
+default_font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_1q1dj"]
+font_size = 96
+font_color = Color(0.667836, 1.90116e-06, 2.40654e-07, 1)
+
+[node name="GameOverMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ix5yo")
+script = ExtResource("2_hpleq")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "YOU DEAD..."
+label_settings = SubResource("LabelSettings_1q1dj")
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+modulate = Color(0.666667, 0, 0, 1)
+layout_mode = 2
+text = "again"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+modulate = Color(0.666667, 0, 0, 1)
+layout_mode = 2
+text = "I'm Done"
+
+[node name="GameOverScream" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ju786")
+pitch_scale = 0.89
+max_polyphony = 8
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

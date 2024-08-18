@@ -5,3 +5,4 @@
 [node name="EnemyRoar" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_ggyij")
 autoplay = true
+max_polyphony = 8

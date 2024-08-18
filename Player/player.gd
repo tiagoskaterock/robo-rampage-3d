@@ -4,6 +4,7 @@ const SPEED = 5.0
 @export var jump_height: float = 1.0
 @export var fall_multiplier: float = 1.5
 @export var max_hitpoints:= 100
+var is_alive = true
 
 # Get the gravity from the project settings to be syn2222222ced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -13,8 +14,7 @@ var hitpoints:int = max_hitpoints:
 		hitpoints = value
 		print(hitpoints)
 		if hitpoints <= 0:
-			print('die')
-			# get_tree().quit()
+			game_over()
 
 @onready var camera_pivot: Node3D = $CameraPivot
 
@@ -22,7 +22,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	handle_camera_rotation()
 	# Add the gravity.
 	if not is_on_floor():
@@ -48,9 +48,10 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+
+func _input(event: InputEvent) -> void:	
+	if event is InputEventMouseMotion:		
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:			
 			mouse_motion = -event.relative * 0.001		
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -67,3 +68,11 @@ func handle_camera_rotation() -> void :
 	
 func take_damage() -> void:
 	$DamageTexture/AnimationPlayer.play("TakeDamage")
+	
+	
+func game_over():
+	if is_alive:
+		set_physics_process(false)	
+		get_parent().get_node("GameOverMenu").game_over()
+		is_alive = false
+

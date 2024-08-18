@@ -73,10 +73,13 @@ func look_at_target(direction: Vector3) -> void:
 
 
 func attack() -> void:
-	if distance <= attack_range:
-		roar()
-		player.hitpoints -= attack_damage
-		player.take_damage()
+	if player.is_alive:
+		if distance <= attack_range:
+			roar()
+			player.hitpoints -= attack_damage
+			player.take_damage()
+	else:
+		$AnimationPlayer.stop()
 	
 	
 func roar():
