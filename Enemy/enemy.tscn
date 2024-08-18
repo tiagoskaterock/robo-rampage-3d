@@ -141,3 +141,8 @@ mesh = SubResource("BoxMesh_2ilac")
 libraries = {
 "": SubResource("AnimationLibrary_k1c5k")
 }
+
+[node name="TimerToDie" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="TimerToDie" to="." method="_on_timer_to_die_timeout"]

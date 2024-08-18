@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cha2x1t50f52e"]
+
+[ext_resource type="AudioStream" uid="uid://vyqdo5sdd7a7" path="res://FX/enemy-scream.mp3" id="1_8dtk8"]
+
+[node name="EnemyDeathScream" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_8dtk8")
+volume_db = 80.0
+autoplay = true
+max_polyphony = 8

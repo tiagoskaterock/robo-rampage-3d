@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Enemy
 
-const SPEED = 3.0
+const SPEED = 4.0
 const JUMP_VELOCITY = 4.5
 
 @export var max_hitpoints := 100
@@ -19,12 +19,14 @@ var player
 var distance
 var provoked := false
 var aggro_range := 12.0
+var pre_death_scream = preload("res://FX/enemy_death_scream.tscn")
 var hitpoints: int = max_hitpoints:
 	set(value):
 		hitpoints = value
 		if hitpoints <= 0:
-			queue_free()
+			die()
 		provoked = true
+
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -38,7 +40,6 @@ func _process(_delta):
 func _physics_process(delta):
 	var next_position = navigation_agent_3d.get_next_path_position()
 	
-	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -66,10 +67,12 @@ func _physics_process(delta):
 	move_and_slide()
 	
 
+
 func look_at_target(direction: Vector3) -> void:
 	var ajusted_direction = direction
 	ajusted_direction.y = 0
 	look_at(global_position + ajusted_direction, Vector3.UP, true)
+
 
 
 func attack() -> void:
@@ -87,3 +90,13 @@ func roar():
 	var roar = pre_roar.instantiate()
 	sandbox.add_child(roar)
 
+
+func die():
+	var death_scream = pre_death_scream.instantiate()
+	get_parent().add_child(death_scream)
+	set_physics_process(false)
+	$TimerToDie.start()
+	
+
+func _on_timer_to_die_timeout():
+	queue_free()

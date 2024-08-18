@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqfuurbh1tu7v"]
+[gd_scene load_steps=19 format=3 uid="uid://bqfuurbh1tu7v"]
 
 [ext_resource type="PackedScene" uid="uid://db75qmu2iocgr" path="res://Player/player.tscn" id="1_t3iey"]
+[ext_resource type="Script" path="res://Levels/Sandbox.gd" id="1_xir6v"]
 [ext_resource type="Material" uid="uid://ja747rjvklco" path="res://Levels/Materials/orange_material_3d.tres" id="2_p1taj"]
 [ext_resource type="Script" path="res://Player/CrossHair.gd" id="3_0fitx"]
 [ext_resource type="Material" uid="uid://cj8d66f6srjxy" path="res://Levels/Materials/grey_material.tres" id="3_6de5n"]
 [ext_resource type="Material" uid="uid://bmdqk7qp0ncxn" path="res://Levels/Materials/yellow_material.tres" id="3_e8lmn"]
 [ext_resource type="PackedScene" uid="uid://dfqplfjus60wo" path="res://Enemy/enemy.tscn" id="6_ojd6m"]
 [ext_resource type="PackedScene" uid="uid://ck24o3123ltie" path="res://Player/game_over_menu.tscn" id="7_amrp6"]
+[ext_resource type="AudioStream" uid="uid://cvaaq783ehsj8" path="res://soundtrack/life-turns-to-history.mp3" id="9_632fa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_segxe"]
 sky_top_color = Color(0.230906, 0.511261, 0.393221, 1)
@@ -43,6 +45,7 @@ albedo_color = Color(0.684019, 0.673631, 0, 1)
 albedo_color = Color(0.00114378, 0, 0.954673, 1)
 
 [node name="Sandbox" type="Node3D"]
+script = ExtResource("1_xir6v")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_71j1q")
@@ -268,3 +271,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46852, 2.61908, 14.1365)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20874, 2.61908, -12.8363)
 
 [node name="GameOverMenu" parent="." instance=ExtResource("7_amrp6")]
+
+[node name="AudioStreamPlayerStage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_632fa")
+volume_db = -11.277
