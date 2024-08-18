@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Enemy
 
-const SPEED = 5.0
+const SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 
 @export var max_hitpoints := 100
@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 var player
+var distance
 var provoked := false
 var aggro_range := 12.0
 var hitpoints: int = max_hitpoints:
@@ -43,7 +44,7 @@ func _physics_process(delta):
 
 	var direction = global_position.direction_to(next_position)
 	
-	var distance = global_position.distance_to(player.global_position)
+	distance = global_position.distance_to(player.global_position)
 	
 	if distance <= aggro_range:
 		provoked = true
@@ -51,6 +52,8 @@ func _physics_process(delta):
 	if provoked:
 		if distance < attack_range:
 			animation_player.play("Attack")
+		else:
+			animation_player.stop()
 
 	if direction:
 		look_at_target(direction)
@@ -70,9 +73,10 @@ func look_at_target(direction: Vector3) -> void:
 
 
 func attack() -> void:
-	player.hitpoints -= attack_damage
-	player.take_damage()
-	roar()
+	if distance <= attack_range:
+		roar()
+		player.hitpoints -= attack_damage
+		player.take_damage()
 	
 	
 func roar():

@@ -17,13 +17,10 @@ point_count = 2
 curve = SubResource("Curve_hln43")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_br83a"]
-emission_shape_offset = Vector3(0, 0, -1)
 direction = Vector3(0, 0, 0)
 initial_velocity_min = -8.0
 initial_velocity_max = -8.0
 angular_velocity_max = 90.0
-radial_velocity_min = 2.0
-radial_velocity_max = 4.0
 gravity = Vector3(0, -1, 0)
 scale_curve = SubResource("CurveTexture_c3q17")
 
