@@ -19,6 +19,7 @@ var hitpoints:int = max_hitpoints:
 @onready var camera_pivot: Node3D = $CameraPivot
 
 func _ready():
+	$DeadTexture.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 
@@ -72,7 +73,8 @@ func take_damage() -> void:
 	
 func game_over():
 	if is_alive:
-		set_physics_process(false)	
+		$DeadTexture.visible = true
+		set_physics_process(false)
 		get_parent().get_node("GameOverMenu").game_over()
 		is_alive = false
 

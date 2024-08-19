@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck24o3123ltie"]
+[gd_scene load_steps=9 format=3 uid="uid://ck24o3123ltie"]
 
 [ext_resource type="FontFile" uid="uid://h0rqbuio3coo" path="res://Fonts/Creepster/Creepster-Regular.ttf" id="1_8gf8t"]
 [ext_resource type="Script" path="res://Player/game_over_menu.gd" id="2_hpleq"]
 [ext_resource type="AudioStream" uid="uid://bwvcpti5hh0er" path="res://FX/man-scream.mp3" id="3_ju786"]
+[ext_resource type="Shader" uid="uid://fuoin3jce3eq" path="res://Player/game_over_menu.tres" id="3_rho0j"]
 
 [sub_resource type="Theme" id="Theme_ix5yo"]
 default_font = ExtResource("1_8gf8t")
 default_font_size = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eup07"]
+shader = ExtResource("3_rho0j")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7nfyl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1q1dj"]
 font_size = 96
@@ -22,6 +28,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ix5yo")
 script = ExtResource("2_hpleq")
+
+[node name="BackgroundBlur" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_eup07")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_7nfyl")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
