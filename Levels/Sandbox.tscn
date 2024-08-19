@@ -8,7 +8,7 @@
 [ext_resource type="Material" uid="uid://bmdqk7qp0ncxn" path="res://Levels/Materials/yellow_material.tres" id="3_e8lmn"]
 [ext_resource type="PackedScene" uid="uid://dfqplfjus60wo" path="res://Enemy/enemy.tscn" id="6_ojd6m"]
 [ext_resource type="PackedScene" uid="uid://ck24o3123ltie" path="res://Player/game_over_menu.tscn" id="7_amrp6"]
-[ext_resource type="AudioStream" uid="uid://cvaaq783ehsj8" path="res://soundtrack/life-turns-to-history.mp3" id="9_632fa"]
+[ext_resource type="AudioStream" uid="uid://dcvuw4s63f6vf" path="res://soundtrack/03. E1M1 - At Doom's Gate.mp3" id="9_tqfgm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_segxe"]
 sky_top_color = Color(0.230906, 0.511261, 0.393221, 1)
@@ -273,5 +273,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20874, 2.61908, -12.8363)
 [node name="GameOverMenu" parent="." instance=ExtResource("7_amrp6")]
 
 [node name="AudioStreamPlayerStage" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_632fa")
-volume_db = -11.277
+stream = ExtResource("9_tqfgm")
+autoplay = true

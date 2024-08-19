@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck24o3123ltie"]
+[gd_scene load_steps=11 format=3 uid="uid://ck24o3123ltie"]
 
 [ext_resource type="FontFile" uid="uid://h0rqbuio3coo" path="res://Fonts/Creepster/Creepster-Regular.ttf" id="1_8gf8t"]
 [ext_resource type="Script" path="res://Player/game_over_menu.gd" id="2_hpleq"]
 [ext_resource type="AudioStream" uid="uid://bwvcpti5hh0er" path="res://FX/man-scream.mp3" id="3_ju786"]
 [ext_resource type="Shader" uid="uid://fuoin3jce3eq" path="res://Player/game_over_menu.tres" id="3_rho0j"]
+[ext_resource type="AudioStream" uid="uid://c2y5ctiug48eh" path="res://FX/yeah-boy-114748.mp3" id="5_ts8rv"]
+[ext_resource type="AudioStream" uid="uid://b4po8kklcbhvs" path="res://FX/eagle-scream-112940.mp3" id="6_5astp"]
 
 [sub_resource type="Theme" id="Theme_ix5yo"]
 default_font = ExtResource("1_8gf8t")
@@ -72,5 +74,23 @@ stream = ExtResource("3_ju786")
 pitch_scale = 0.89
 max_polyphony = 8
 
+[node name="YeahAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ts8rv")
+pitch_scale = 0.76
+max_polyphony = 7
+
+[node name="TimerToRestart" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="TimerToQuit" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="NoAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5astp")
+pitch_scale = 0.47
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="TimerToRestart" to="." method="_on_timer_to_restart_timeout"]
+[connection signal="timeout" from="TimerToQuit" to="." method="_on_timer_to_quit_timeout"]
+[connection signal="finished" from="NoAudio" to="." method="_on_no_audio_finished"]
