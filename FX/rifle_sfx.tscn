@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx7k2gqwdfgbn"]
+
+[ext_resource type="AudioStream" uid="uid://ds1n23xv1kfua" path="res://FX/grand-rifle.mp3" id="1_4w8lv"]
+
+[node name="RifleSFX" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_4w8lv")
+pitch_scale = 0.84
+autoplay = true
