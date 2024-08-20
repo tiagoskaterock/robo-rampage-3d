@@ -67,12 +67,10 @@ func _physics_process(delta):
 	move_and_slide()
 	
 
-
 func look_at_target(direction: Vector3) -> void:
 	var ajusted_direction = direction
 	ajusted_direction.y = 0
 	look_at(global_position + ajusted_direction, Vector3.UP, true)
-
 
 
 func attack() -> void:
