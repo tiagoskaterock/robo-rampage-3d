@@ -2,7 +2,7 @@
 
 Bem-vindo ao **Robo Rampage 3D**! Este é um jogo de tiro em primeira pessoa (FPS) desenvolvido utilizando a **Godot Engine 4.2.2**. Prepare-se para enfrentar ondas de robôs inimigos enquanto explora um mundo 3D cheio de ação! 🚀
 
-<img alt="game" src="1.gif" />
+<img alt="game" src="game.gif" />
 
 ## 📋 Pré-requisitos
 
