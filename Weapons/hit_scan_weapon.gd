@@ -37,8 +37,10 @@ func shoot() -> void:
 
 
 func shoot_fx():
+	
 	var pre_gun_shot : PackedScene = preload("res://FX/gun_shot.tscn")
 	var gun_shot = pre_gun_shot.instantiate()
+	
 	var pre_rifle_shot : PackedScene = preload("res://FX/rifle_sfx.tscn")
 	var rifle_shot = pre_rifle_shot.instantiate()
 	sandbox.add_child(rifle_shot)

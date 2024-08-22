@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Enemy
 
-const SPEED = 4.0
+const SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 
 @export var max_hitpoints := 100

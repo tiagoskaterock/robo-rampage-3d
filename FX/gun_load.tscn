@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu0jwn6mbuw43"]
+
+[ext_resource type="AudioStream" uid="uid://cm0dwkobmytp4" path="res://FX/gun-load.mp3" id="1_rlgif"]
+
+[node name="GunLoad" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_rlgif")
+volume_db = 45.129
+autoplay = true
